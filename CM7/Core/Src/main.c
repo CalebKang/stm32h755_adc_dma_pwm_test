@@ -141,10 +141,20 @@ Error_Handler();
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  float i = 45.5555;
+  float z = 32.222;
+  static float r = 0;
   while (1)
   {
     HAL_ADC_Start_DMA(&hadc1, (uint32_t *)aADCDualConvertedValues1, 5);
-    HAL_Delay(100);
+    r = i/z;
+    HAL_Delay((uint16_t)(r));
+    z = z + 1.00;
+
+    if(z > 100.000)
+    {
+      z =  32.222;
+    }
 
     /* USER CODE END WHILE */
 
